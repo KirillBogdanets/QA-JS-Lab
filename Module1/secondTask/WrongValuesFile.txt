@@ -1,0 +1,7 @@
+Wrong key's 'myPromise' value: '[object Object]' - not an Array
+Wrong key's 'screenshot' value: '' - not a null
+Wrong key's 'elementText' value: 'false' - not a string
+Wrong key's 'counter' value: '11.3' - less than 10
+Wrong key's 'config' value: 'not a common' - doesn't equal "Common"
+Wrong key's 'const' value: 'the first const' - doesn't equal "FiRst" (case insensitive)
+Wrong key's 'description' value: 'my first project on js' - length is less than 5 or more than 13
