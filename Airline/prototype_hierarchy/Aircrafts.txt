@@ -1,0 +1,6 @@
+LightCivilAircraft, Antonov, AN-38, 27, 700
+MiddleCivilAircraft, Topolev, TY-204-100, 214, 2750
+HeavyCivilAircraft, Boeing, 777-300, 515, 8000
+LightCargoAircraft, Topolev, TY-204-C, 24, 566
+MiddleCargoAircraft, IL, 76TD, 78, 3200
+HeavyCargoAircraft, IL, 96-400T, 187, 9000
