@@ -150,5 +150,5 @@ airline.readFilePromise("./Aircrafts.txt")
     .then((data) =>{
         let arr = airline.aircraftsArrayCreation(data);
         airline.totalAircraftsInfo(arr);
-        airline.rangeValuesWorker(a.aircraftsSorter(arr),process.argv[2],process.argv[3]);
+        airline.rangeValuesWorker(airline.aircraftsSorter(arr),process.argv[2],process.argv[3]);
     });
