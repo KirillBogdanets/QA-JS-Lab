@@ -1,0 +1,15 @@
+{
+  "name": "rw-by-testing",
+  "version": "0.0.1",
+  "description": "rw.by qa automation protractor + cucumber",
+  "scripts": {
+    "update": "webdriver-manager update",
+    "e2e": "protractor protractor.config.js"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "cucumber": "1.*",
+    "protractor": "^5.1.2",
+    "protractor-cucumber-framework": "^4.0.8"
+  }
+}

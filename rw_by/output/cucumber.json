@@ -1,0 +1,541 @@
+[
+  {
+    "description": "As user i want to book excursion tour across Republic of Belarus during New Year's holidays",
+    "elements": [
+      {
+        "id": "booking-excursion-new-year-tour-across-republic-of-belarus;booking-excursion",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Booking excursion",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am on Main page",
+            "result": {
+              "status": "passed",
+              "duration": 1977340752
+            },
+            "line": 6,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:11"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I click on button with name \"Весь сайт\"",
+            "result": {
+              "status": "passed",
+              "duration": 301377125
+            },
+            "line": 7,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:15"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I push on button named \"ТУРИЗМ И ОТДЫХ\"",
+            "result": {
+              "status": "passed",
+              "duration": 154450118
+            },
+            "line": 8,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:19"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I follow the link with name \"Главая страница раздела 'ТУРИЗМ И ОТДЫХ'\"",
+            "result": {
+              "status": "passed",
+              "duration": 1531585960
+            },
+            "line": 9,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:23"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until page with offers is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 298128495
+            },
+            "line": 10,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:27"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I follow the link \"Экскурсии по Беларуси\"",
+            "result": {
+              "status": "passed",
+              "duration": 1254275898
+            },
+            "line": 11,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:31"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until page with Belarusian excursions is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 83374426
+            },
+            "line": 12,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:35"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I follow the link named \"Новогодний экспресс: Москва - Минск - Брест - Москва\"",
+            "result": {
+              "status": "passed",
+              "duration": 1160254625
+            },
+            "line": 13,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:39"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until page with Belarusian excursion named \"Новогодний экспресс: Москва - Минск - Брест - Москва\" is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 98867328
+            },
+            "line": 14,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:46"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I check the correctness of the derived excursion name \"Новогодний экспресс: Москва - Минск - Брест - Москва\"",
+            "result": {
+              "status": "passed",
+              "duration": 42935876
+            },
+            "line": 15,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:50"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I check the correcness of derived excursion duration",
+            "result": {
+              "status": "passed",
+              "duration": 39238855
+            },
+            "line": 16,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingNewYearExcursion.js:56"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@important",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "booking-excursion-new-year-tour-across-republic-of-belarus",
+    "keyword": "Feature",
+    "line": 2,
+    "name": "Booking excursion New Year tour across Republic of Belarus",
+    "tags": [
+      {
+        "name": "@important",
+        "line": 1
+      }
+    ],
+    "uri": "/Users/kirill/Desktop/rw_by/features/booking_excursion_New_Year_tour_across_Belarus.feature"
+  },
+  {
+    "description": "As user i want to book train from Minsk to Brest on some date",
+    "elements": [
+      {
+        "id": "booking-tickets-on-train;booking-tickets",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Booking tickets",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am on booking tickets app Home page",
+            "result": {
+              "status": "passed",
+              "duration": 1377467310
+            },
+            "line": 7,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:13"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I click on button named \"Распасание движения и стоимость проезда\"",
+            "result": {
+              "status": "passed",
+              "duration": 747053958
+            },
+            "line": 8,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:17"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until routing page for booking tickets is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 82930988
+            },
+            "line": 9,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:21"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I enter departure place \"МИНСК\", arrival place \"БРЕСТ\" and departure date \"22.10.2017\" into necessary fields",
+            "result": {
+              "status": "passed",
+              "duration": 463554687
+            },
+            "line": 10,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:25"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on check box for searching trains only with ability to book tickets by internet",
+            "result": {
+              "status": "passed",
+              "duration": 99724323
+            },
+            "line": 11,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:29"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I push the button which named \"Продолжить\"",
+            "result": {
+              "status": "passed",
+              "duration": 1252903425
+            },
+            "line": 12,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:33"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until proposed results page is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 99816396
+            },
+            "line": 13,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:37"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I choose first train",
+            "result": {
+              "status": "passed",
+              "duration": 768493122
+            },
+            "line": 14,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:41"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until page for booking tickets is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 79541813
+            },
+            "line": 15,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:45"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I push the button with name \"Купить билет\"",
+            "result": {
+              "status": "passed",
+              "duration": 448855645
+            },
+            "line": 16,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:49"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until login page is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 85294400
+            },
+            "line": 17,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:53"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I enter prepared user name \"kirilmolotil\" and user's password \"qweasdzxc123\" into the fields",
+            "result": {
+              "status": "passed",
+              "duration": 233485789
+            },
+            "line": 18,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:57"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the button named \"Войти в систему\"",
+            "result": {
+              "status": "passed",
+              "duration": 550107698
+            },
+            "line": 19,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:61"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until confirming rules page is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 118294852
+            },
+            "line": 20,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:65"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I push the button confirming that I agree with rules",
+            "result": {
+              "status": "passed",
+              "duration": 1073106019
+            },
+            "line": 21,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:69"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait until page with user's data is loaded",
+            "result": {
+              "status": "passed",
+              "duration": 82018499
+            },
+            "line": 22,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:73"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I check the correctness of the entered route",
+            "result": {
+              "status": "passed",
+              "duration": 45249532
+            },
+            "line": 23,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:77"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I check the correctness of the entered departure date",
+            "result": {
+              "status": "passed",
+              "duration": 49710274
+            },
+            "line": 24,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/bookingTicketsSteps.js:83"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@important",
+            "line": 1
+          },
+          {
+            "name": "@role(logged)",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "booking-tickets-on-train",
+    "keyword": "Feature",
+    "line": 2,
+    "name": "Booking tickets on train",
+    "tags": [
+      {
+        "name": "@important",
+        "line": 1
+      }
+    ],
+    "uri": "/Users/kirill/Desktop/rw_by/features/booking_tickets_on_train.feature"
+  },
+  {
+    "description": "  As user i want to be able to have valid output after entering valid value in finding routes form on home page",
+    "elements": [
+      {
+        "id": "searching-train-with-routing-form-on-main-page;validation-details",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validation details",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am on Home page",
+            "result": {
+              "status": "passed",
+              "duration": 1463387107
+            },
+            "line": 7,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/firstScenTest.js:12"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I enter valid departure place \"Минск\" and valid arrival place \"Молодечно\" into the fields",
+            "result": {
+              "status": "passed",
+              "duration": 315969955
+            },
+            "line": 8,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/firstScenTest.js:16"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I push the button named \"Куда\"",
+            "result": {
+              "status": "passed",
+              "duration": 3052637934
+            },
+            "line": 9,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/firstScenTest.js:20"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I wait page loaded",
+            "result": {
+              "status": "passed",
+              "duration": 106266226
+            },
+            "line": 10,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/firstScenTest.js:24"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "Page url should begin with \"Расписание движения поездов\"",
+            "result": {
+              "status": "passed",
+              "duration": 8486421
+            },
+            "line": 11,
+            "match": {
+              "location": "/Users/kirill/Desktop/rw_by/step_definitions/firstScenTest.js:28"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@important",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "searching-train-with-routing-form-on-main-page",
+    "keyword": "Feature",
+    "line": 2,
+    "name": "Searching train with routing form on main page",
+    "tags": [
+      {
+        "name": "@important",
+        "line": 1
+      }
+    ],
+    "uri": "/Users/kirill/Desktop/rw_by/features/searching_train_with_routin_form_on_home_page.feature"
+  }
+]
