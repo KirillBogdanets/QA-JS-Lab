@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "read" : "node ./json_worker/read.js --title=",
+    "list" : "node ./json_worker/list.js"
   },
   "author": "Kirill Bogdanets",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^9.0.1"
+  }
 }
