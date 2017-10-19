@@ -1,12 +1,32 @@
-const jsonArray = require('../jsonFileWithNotes');
 const argv = require('yargs').argv;
+const fs = require('fs');
+let jsonArray;
+
+/**
+ * checking if jsonFileWithNotes.json is created
+ */
+if (fs.existsSync('./jsonFileWithNotes.json')) {
+    jsonArray = require('../jsonFileWithNotes.json');
+} else{
+    jsonArray = [];
+}
+
 
 class Reader {
 	constructor(){
 
 	}
 
-	read (title = "Something"){
+    /**
+     * function for output note from file by it's title
+     * @param title
+     */
+	read (title = "default title"){
+
+        if (jsonArray.length === 0){
+            console.log(".json File hasn't created yet.");
+            return;
+        }
 
         let counter = 0;
         jsonArray.forEach((obj) =>{
