@@ -2,46 +2,54 @@
  * Created by Kiryl_Bahdanets on 10/19/2017.
  */
 
-let a = require('../importer/import_worker.js');
+let importer = require('../importer/import_worker.js');
 const fs = require('fs');
-var chokidar = require('chokidar');
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
 let fsTimeout;
+const argv = require('yargs').argv;
 
 class DirWatcher {
     constructor (){}
 
 
 
-    watcher () {
+    watcher (path, delay) {
 
-        // chokidar.watch('C:\\Users\\Kiryl_Bahdanets\\WebstormProjects\\data\\', {ignored: /(^|[\/\\])\../}).on('all', (event, path) => {
-        //     console.log(event, path);
-        // });
+        eventEmitter.on("changingInTheFoulder", function (path, filename){
 
-        var watcher = chokidar.watch('C:\\Users\\Kiryl_Bahdanets\\WebstormProjects\\data\\', {
-            ignored: /(^|[\/\\])\../,
-            persistent: true
-            // interval: 5000
+            importer.import(path,filename);
+
         });
 
-        watcher
-            .on('add', path => console.log(`File ${path} has been added`))
-            .on('change', path => console.log(`File ${path} has been changed`))
-            .on('unlink', path => console.log(`File ${path} has been removed`));
-    //     fs.watch('C:\\Users\\Kiryl_Bahdanets\\WebstormProjects\\data\\', function(event,filename) {
-    //
-    //         if (!fsTimeout) {
-    //             // a.import('C:\\Users\\Kiryl_Bahdanets\\WebstormProjects\\data\\' + filename, filename);
-    //             console.log('file.js', event, filename);
-    //             fsTimeout = setTimeout(function() { fsTimeout=null }, 5000); // give 5 seconds for multiple events
-    //
-    //             // a.import('C:\\Users\\Kiryl_Bahdanets\\WebstormProjects\\data\\' + filename, filename);
-    //         }
-    //         a.import('C:\\Users\\Kiryl_Bahdanets\\WebstormProjects\\data\\' + filename, filename);
-    //     }, 5000);
-    }
+        fs.watch(path, function(event,filename) {
 
+            if (filename.substr(-3) === "csv") {
+
+             if (!fsTimeout) {
+
+                if (event === 'change' || event === 'rename') {
+
+                    eventEmitter.emit("changingInTheFoulder", path, filename);
+                }
+
+                fsTimeout = setTimeout(() => { 
+
+                    fsTimeout = null;
+
+                }, parseInt(delay));
+            }
+        }
+    });
+
+    }
 }
 
-let b = new DirWatcher();
-b.watcher();
+let dirWatcher = new DirWatcher();
+dirWatcher.watcher(argv.path, argv.delay);
+
+
+module.exports = new DirWatcher();
+
+
+

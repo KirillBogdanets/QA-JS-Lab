@@ -9,6 +9,6 @@
   "author": "Kirill Bogdanets",
   "license": "ISC",
   "dependencies": {
-    "chokidar": "^1.7.0"
+    "yargs": "^9.0.1"
   }
 }

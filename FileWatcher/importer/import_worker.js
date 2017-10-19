@@ -1,6 +1,3 @@
-/**
- * Created by Kiryl_Bahdanets on 10/19/2017.
- */
 
 const fs = require('fs');
 
@@ -18,7 +15,7 @@ class Importer {
                 }
 
                 else {
-                    console.log("File is updated");
+                    console.log(`File: '${filename}' is updated`);
                     resolve();
                 }
             });
@@ -26,11 +23,10 @@ class Importer {
     }
 
     import(path, filename){
-
-        console.log(path, filename);
+        
         return new Promise((resolve, reject) => {
 
-            fs.readFile(path, 'utf8', (err, data) => {
+            fs.readFile(path + filename, 'utf8', (err, data) => {
                 if (err){
                     reject(err);
                 }
@@ -62,7 +58,7 @@ class Importer {
 
         }).then((parsedObject) => {
 
-            this.writeIntoTheFile(parsedObject,"../MOCK_DATA(1).json");
+            this.writeIntoTheFile(parsedObject,`../${filename.substring(0, filename.length - 4)}.json`);
 
         });
     }
@@ -95,7 +91,7 @@ class Importer {
         return parsedObj;
     }
 }
-let a = new Importer();
-// a.import('C:\\Users\\Kiryl_Bahdanets\\WebstormProjects\\data\\MOCK_DATA(1).csv');
 
 module.exports = new Importer();
+
+
