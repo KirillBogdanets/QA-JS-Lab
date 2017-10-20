@@ -7,14 +7,16 @@ class JsonVerification {
     constructor (){}
 
     jsonExistenceVerification (json){
-        if (json.substr(0,2) === ".."){
-            return fs.existsSync(json) ? require(json) : [];
-        } else {
-            return fs.existsSync(json) ? require(`.${json}`) : [];
-        }
-        // console.log( require(`../../${json}`));
-        // return fs.existsSync(json) ? require(json) : [];
 
+        if (json.substr(0,2) === ".."){
+
+            return fs.existsSync(json) ? require(json) : [];
+
+        } else {
+
+            return fs.existsSync(json) ? require(`.${json}`) : [];
+
+        }
     }
 
 }
