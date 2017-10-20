@@ -1,36 +1,16 @@
 const fs = require('fs');
 const argv = require('yargs').argv;
-let jsonArray;
+const fileWriter = require('./fileWriter.js');
 
-/**
- * checking if jsonFileWithNotes.json is created
- */
-if (fs.existsSync('../jsonFileWithNotes.json')) {
-    jsonArray = require('../jsonFileWithNotes.json');
-} else{
-    jsonArray = [];
-}
+const jsonFileName = '../jsonFileWithNotes.json';
+
+const jsonVerificator = require('./jsonVerification.js');
+
+let notesArray = jsonVerificator.jsonExistenceVerification(jsonFileName);
+
 
 class Remover {
 	constructor(){}
-
-    /**
-     * function for writing into the jsonFileWithNotes.json File
-     * @param value
-     * @returns {Promise}
-     */
-	writeIntoTheFile (value){
-
-        return new Promise((resolve, reject) => {
-
-            fs.writeFile('../jsonFileWithNotes.json', value, (err) => {
-
-                if (err){
-                    reject(err);
-                }
-            });
-        });
-    }
 
     /**
      * function for removing note from file by it's title
@@ -39,39 +19,43 @@ class Remover {
      */
 	remove (title){
 
-        if (jsonArray.length === 0){
+        if (notesArray.length === 0){
             console.log(".json File hasn't created yet.");
             return;
         }
 
-        let arrayLength = jsonArray.length;
+        let arrayLength = notesArray.length;
 
 
-        jsonArray = jsonArray.filter((element) => {
+        notesArray = notesArray.filter((element) => {
            return element.title !== title;
         });
 
-        if (arrayLength === jsonArray.length){
+        if (arrayLength === notesArray.length){
             console.log(`There is no note's with such title: '${title}'`);
             return;
         }
         
         return new Promise((resolve, reject) => {
 
-            let parsedObj = JSON.stringify(jsonArray);
+            let parsedObj = JSON.stringify(notesArray);
             resolve(parsedObj);
+
         }).then((parsedObj) => {
-        	this.writeIntoTheFile(parsedObj);
+
+            fileWriter.writeIntoTheFile(parsedObj);
             console.log(`Note with title: '${title}' is deleted.`)
+
         }).catch(err =>{
+
             console.log(err);
+
         });
     }
 }
 
 let remover = new Remover();
 remover.remove(argv.title);
-
 
 
 

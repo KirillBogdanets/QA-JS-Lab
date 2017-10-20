@@ -1,15 +1,10 @@
 const argv = require('yargs').argv;
 const fs = require('fs');
-let jsonArray;
+const jsonFileName = './jsonFileWithNotes.json';
 
-/**
- * checking if jsonFileWithNotes.json is created
- */
-if (fs.existsSync('./jsonFileWithNotes.json')) {
-    jsonArray = require('../jsonFileWithNotes.json');
-} else{
-    jsonArray = [];
-}
+const jsonVerificator = require('./jsonVerification.js');
+
+let notesArray = jsonVerificator.jsonExistenceVerification(jsonFileName);
 
 
 class Reader {
@@ -23,13 +18,13 @@ class Reader {
      */
 	read (title = "default title"){
 
-        if (jsonArray.length === 0){
+        if (notesArray.length === 0){
             console.log(".json File hasn't created yet.");
             return;
         }
 
         let counter = 0;
-        jsonArray.forEach((obj) =>{
+        notesArray.forEach((obj) =>{
           if(obj.title === title) {
               console.log(`Here is note with given title: "${title}":\n{title: ${obj.title}, body: ${obj.body}}`);
               ++counter;

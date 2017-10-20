@@ -3,41 +3,14 @@ const fs = require('fs');
 const argv = require('yargs').argv;
 let jsonObj = {};
 
+const jsonFileName = '../jsonFileWithNotes.json';
+const jsonVerificator = require('./jsonVerification.js');
+const fileWriter = require('./fileWriter.js');
 
-/**
- * checking if jsonFileWithNotes.json is created
- */
-if (fs.existsSync('../jsonFileWithNotes.json')) {
-    jsonObj.jsonArray = require('../jsonFileWithNotes.json');
-} else{
-    jsonObj.jsonArray = [];
-}
+jsonObj.notesArray = jsonVerificator.jsonExistenceVerification(jsonFileName);
 
 class Adder {
     constructor (){}
-
-    /**
-     * function for writing into the jsonFileWithNotes.json File
-     * @param value
-     * @returns {Promise}
-     */
-    writeIntoTheFile (value){
-
-        return new Promise((resolve, reject) => {
-
-            fs.writeFile('../jsonFileWithNotes.json', value, (err) => {
-
-                if (err){
-                    reject(err);
-                }
-
-                else {
-                    console.log("File is updated");
-                    resolve();
-                }
-            });
-        });
-    }
 
     /**
      * function for verification given title and body and if it's all okay they will be writing int the file jsonFileWithNotes.json
@@ -54,7 +27,7 @@ class Adder {
 
         try {
 
-            jsonObj.jsonArray.forEach((obj) =>{
+            jsonObj.notesArray.forEach((obj) =>{
                 if (obj.title === title){
                     throw new Error(`Note with such title: '${title}' is already in JSON File`);
                 }
@@ -68,14 +41,14 @@ class Adder {
 
         return new Promise((resolve, reject) => {
 
-            jsonObj.jsonArray.push({title:title, body: body});
+            jsonObj.notesArray.push({title:title, body: body});
 
-            let parsedObj = JSON.stringify(jsonObj.jsonArray);
+            let parsedObj = JSON.stringify(jsonObj.notesArray);
             resolve(parsedObj);
 
         }).then((parsedObj) => {
 
-            this.writeIntoTheFile(parsedObj).then(() =>{
+            fileWriter.writeIntoTheFile(parsedObj).then(() =>{
                 console.log(`{title: ${title}, body: ${body}} has been added into the File.`)
             });
 
@@ -87,5 +60,4 @@ class Adder {
 
 let adder = new Adder();
 adder.add(argv.title, argv.body);
-
 
