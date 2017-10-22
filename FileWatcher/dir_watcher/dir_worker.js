@@ -2,11 +2,12 @@
  * module for watching given folder and emitting new event if this folder file's are changed or created new .csv Files
  */
 
-let importer = require('../importer/import_worker.js');
 const fs = require('fs');
-var events = require('events');
-var eventEmitter = new events.EventEmitter();
-let fsTimeout;
+const events = require('events');
+const eventEmitter = new events.EventEmitter();
+
+let importer = require('../importer/import_worker.js');
+
 const argv = require('yargs').argv;
 
 class DirWatcher {
@@ -21,6 +22,8 @@ class DirWatcher {
      * @param delay
      */
     watcher (path, delay) {
+
+        let fsTimeout;
 
         console.log(`Folder's: '${path}' watcher is running...`);
 

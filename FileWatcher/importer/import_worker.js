@@ -47,7 +47,7 @@ class Importer {
 
                 if (err){
                     console.log(`No such file '${filename}' in the folder`);
-                    // return;
+                    
                 }
                 else {
                     resolve(data);
