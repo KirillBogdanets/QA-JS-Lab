@@ -4,11 +4,12 @@
 
 const fs = require('fs');
 const events = require('events');
+const pathEx = require('path');
+const argv = require('yargs').argv;
 const eventEmitter = new events.EventEmitter();
 
 let importer = require('../importer/import_worker.js');
-
-const argv = require('yargs').argv;
+let logger = require('../logger/log');
 
 class DirWatcher {
 
@@ -25,7 +26,11 @@ class DirWatcher {
 
         let fsTimeout;
 
-        console.log(`Folder's: '${path}' watcher is running...`);
+        console.info(`Folder's: '${path}' watcher is running...`);
+        logger.log({
+            level: 'info',
+            message: `Folder's: '${path}' watcher is running...`
+        });
 
 
         eventEmitter.on("AsyncChangingInTheFolderWatcher", (path, filename) =>{ //returns Promise
@@ -42,29 +47,31 @@ class DirWatcher {
 
         fs.watch(path, (event,filename) => {
 
-            if (filename.substr(-3) === "csv") {
+            if (pathEx.extname(filename) === ".csv") {
 
                 if (!fsTimeout) {
 
-                    if (event === 'change' || event === 'rename') {
+                    if (event === 'change') {
+
+                        eventEmitter.emit("AsyncChangingInTheFolderWatcher", path, filename);
+
+
+                        fsTimeout = setTimeout(() => {
+
+                            fsTimeout = null;
+
+                        }, parseInt(delay));
+
+                    } else if (event === 'rename'){
 
                         eventEmitter.emit("AsyncChangingInTheFolderWatcher", path, filename);
 
                     }
-
-                    fsTimeout = setTimeout(() => {
-
-                        fsTimeout = null;
-
-                    }, parseInt(delay));
                 }
             }
         });
     }
 }
-
-let dirWatcher = new DirWatcher();
-dirWatcher.watcher(argv.path, argv.delay);
 
 module.exports = new DirWatcher();
 

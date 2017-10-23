@@ -2,13 +2,14 @@
   "name": "module-3-task-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "runner.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kirill Bogdanets",
   "license": "ISC",
   "dependencies": {
+    "winston": "^3.0.0-rc1",
     "yargs": "^9.0.1"
   }
 }

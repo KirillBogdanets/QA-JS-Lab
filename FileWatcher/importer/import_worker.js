@@ -3,7 +3,8 @@
  */
 
 const fs = require('fs');
-const pathFotCreationNewJsonFile = "../"; //path where .json file with data from given files inside will be created
+let logger = require('../logger/log');
+const pathFotCreationNewJsonFile = "./"; //path where .json file with data from given files inside will be created
 
 class Importer {
     constructor (){}
@@ -25,7 +26,11 @@ class Importer {
                 }
 
                 else {
-                    console.log(`File: '${filename}' is updated`);
+                    console.info(`JSON File named: '${filename}' with data from: '${filename.substr(pathFotCreationNewJsonFile.length,(filename.length - pathFotCreationNewJsonFile.length) - 4)}csv' is updated`);
+                    logger.log({
+                        level: 'info',
+                        message: `JSON File named: '${filename}' with data from: '${filename.substr(pathFotCreationNewJsonFile.length,(filename.length - pathFotCreationNewJsonFile.length) - 4)}csv' is updated`
+                    });
                     resolve();
                 }
             });
@@ -46,13 +51,39 @@ class Importer {
             fs.readFile(path + filename, 'utf8', (err, data) => {
 
                 if (err){
-                    console.log(`No such file '${filename}' in the folder`);
-                    
+
+                    return new Promise((resolve, reject) => {
+
+                        fs.unlink(`${pathFotCreationNewJsonFile}${filename.substr(0,filename.length-3)}json`, (err, result) => {
+
+                        if (err) {
+
+                            console.info(`File named: '${filename}' is removed from the folder.\nJSON File with name: '${filename.substr(0,filename.length-3)}json' with data from: '${filename}' hasn't been crated yet`);
+                            logger.log({
+                                level: 'info',
+                                message: `File named: '${filename}' is removed from the folder.\nJSON File with name: '${filename.substr(0,filename.length-3)}json' with data from: '${filename}' hasn't been crated yet`
+                            });
+
+                            return;
+
+                        }
+
+                            logger.log({
+                                level: 'info',
+                                message: `File named: '${filename}' is removed from the folder.\nJSON File ${filename.substr(0, filename.length - 3)}json was deleted from the folder`
+                            });
+                            console.info(`File named: '${filename}' is removed from the folder.\nJSON File ${filename.substr(0, filename.length - 3)}json was deleted from the folder`);
+
+                        });
+                    });
                 }
+
                 else {
                     resolve(data);
                 }
-            })
+
+            });
+
         }).then((data) => {
 
             let obj = {};
@@ -73,12 +104,18 @@ class Importer {
                 counter++;
             });
 
-            return JSON.stringify(obj);
+            return JSON.stringify(obj, null, 2);
 
         }).then((parsedObject) => {
 
             this.writeIntoTheFile(parsedObject,`${pathFotCreationNewJsonFile}${filename.substring(0, filename.length - 4)}.json`);
 
+        }).catch(err =>{
+            console.error(err);
+            logger.log({
+                level: 'error',
+                message: `${err}`
+            });
         });
     }
 
@@ -98,8 +135,29 @@ class Importer {
 
         } catch (err){
 
-            console.log(`No such file '${filename}' in the folder`);
-            return;
+            try {
+
+                fs.unlinkSync(`${pathFotCreationNewJsonFile}${filename.substr(0, filename.length - 3)}json`);
+
+                console.info(`File named: '${filename}' is removed from the folder.\nJSON File ${filename.substr(0, filename.length - 3)}json was deleted from the folder`);
+                logger.log({
+                    level: 'info',
+                    message: `File named: '${filename}' is removed from the folder.\nJSON File ${filename.substr(0, filename.length - 3)}json was deleted from the folder`
+                });
+
+                return;
+
+            } catch (error){
+
+                console.info(`File named: '${filename}' is removed from the folder.\nJSON File with name: '${filename.substr(0,filename.length-3)}json' with data from: '${filename}' hasn't been crated yet`);
+                logger.log({
+                    level: 'info',
+                    message: `File named: '${filename}' is removed from the folder.\nJSON File with name: '${filename.substr(0,filename.length-3)}json' with data from: '${filename}' hasn't been crated yet`
+                });
+
+                return;
+
+            }
         }
 
         let obj = {};
@@ -120,9 +178,15 @@ class Importer {
             counter++;
         });
 
-        let parsedObj = JSON.stringify(obj);
+        let parsedObj = JSON.stringify(obj, null, 2);
+
         fs.writeFileSync(`${pathFotCreationNewJsonFile}${filename.substring(0, filename.length - 4)}.json`,parsedObj);
-        console.log(`File: '${filename}' is updated`);
+
+        console.info(`JSON File named: '${filename}' with data from: '${filename.substr(pathFotCreationNewJsonFile.length,(filename.length - pathFotCreationNewJsonFile.length) - 4)}csv' is updated`);
+        logger.log({
+            level: 'info',
+            message: `JSON File named: '${filename}' with data from: '${filename.substr(pathFotCreationNewJsonFile.length,(filename.length - pathFotCreationNewJsonFile.length) - 4)}csv' is updated`
+        });
 
         return parsedObj;
     }
