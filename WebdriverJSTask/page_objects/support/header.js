@@ -19,6 +19,7 @@ class Header {
         this.registrationButton =  webdriver.By.className("btn btn_x-large btn_navbar_registration");
         this.loggedUsersButton = webdriver.By.css("div[class='dropdown dropdown_user']");
         this.loggedUsersProfile = webdriver.By.css("span[class='user-info__nickname']");
+        this.tracker = webdriver.By.css("a[title='Трекер']");
     }
 }
 

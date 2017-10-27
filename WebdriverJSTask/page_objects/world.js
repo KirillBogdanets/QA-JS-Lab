@@ -4,6 +4,8 @@
 
 const HomePage = require('./home_page');
 const LoginPage = require('./login_page');
+const TrackerPage = require('./tracker_page');
+const UsersPage = require('./users_page');
 
 class World {
 
@@ -11,6 +13,8 @@ class World {
 
         this.homePage = new HomePage();
         this.loginPage = new LoginPage();
+        this.trackerPage = new TrackerPage();
+        this.usersPage = new UsersPage();
     }
 }
 
