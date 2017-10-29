@@ -1,0 +1,13 @@
+{
+  "name": "protractor-angular-app-testing",
+  "version": "0.0.1",
+  "description": "foxsports.com qa automation protractor + jasmine",
+  "scripts": {
+    "update": "webdriver-manager update",
+    "e2e": "protractor protractor.config.js"
+  },
+  "dependencies": {
+    "eslint": "^4.10.0",
+    "protractor": "^5.1.2"
+  }
+}
