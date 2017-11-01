@@ -2,10 +2,9 @@
 'use strict';
 const path = require("path");
 exports.config = {
-    directConnect: true,
-    
+
     baseUrl: 'http://www.foxsports.com/',
-    
+
     multiCapabilities: [{
         browserName: 'chrome',
         platform: "macOS Sierra 10.12.6",
@@ -14,6 +13,10 @@ exports.config = {
         browserName: 'firefox',
         platform: "macOS Sierra 10.12.6",
         maxDuration: 10800
+    }, {
+        browserName: 'internet explorer',
+        'platform': 'ANY',
+        'version': '11'
     }],
     specs: [
         './tests/*[Tt]st.js'

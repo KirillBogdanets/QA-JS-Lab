@@ -43,7 +43,7 @@ describe("www.foxsports.com soccer La-Liga table verification", function() {
             //   return world.homePage.header.laLigaLink.click();
         }).then(() =>{
 
-        	return browser.wait(EC.visibilityOf(world.soccerLaLigaPage.soccerPagesHeader.standingsButton));
+        	return browser.wait(EC.visibilityOf(world.soccerLaLigaPage.soccerPagesHeader.standingsButton), DEFAULT_STEP_TIMEOUT);
 
         }).then(() =>{
 
